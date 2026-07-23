@@ -1,0 +1,9 @@
+gcloud run services add-iam-policy-binding trade-data \
+  --region="$REGION" \
+  --member="serviceAccount:$AGENT_SA" \
+  --role="roles/run.invoker"
+
+gcloud run services add-iam-policy-binding position-data \
+  --region="$REGION" \
+  --member="serviceAccount:$AGENT_SA" \
+  --role="roles/run.invoker"
