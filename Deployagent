@@ -1,0 +1,12 @@
+export PROJECT_ID="your-project-id"
+export REGION="asia-south1"
+export AGENT_SERVICE="trade-position-agent"
+
+gcloud config set project "$PROJECT_ID"
+
+gcloud services enable \
+  aiplatform.googleapis.com \
+  run.googleapis.com \
+  cloudbuild.googleapis.com \
+  artifactregistry.googleapis.com \
+  iam.googleapis.com
