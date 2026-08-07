@@ -1,353 +1,236 @@
-# AI Agent Harness + Second Brain — Speaker Talk Track
+# Second Brain as an AI Agent Harness — Speaker Talk Track
 
-Companion speaker notes for the presentation **AI Agent Harness + Second Brain: How persistent engineering context turns AI-assisted coding into a repeatable delivery system**.
+Speaker notes for the revised presentation shown on 7 Aug 2026.
 
----
-
-## Slide 1 — AI Agent Harness + Second Brain
-
-### Main message
-AI-assisted coding becomes much more valuable when we combine the model with reusable context, workflows, and engineering memory.
-
-### Talking points
-- AI coding tools are already good at generating code, but code generation alone is not the main bottleneck.
-- The bigger challenge is giving AI the **right context at the right time**.
-- An **Agent Harness** provides instructions, tools, guardrails, and a repeatable workflow.
-- A **Second Brain** preserves architecture, domain knowledge, decisions, lessons, and reusable engineering knowledge.
-- A **Knowledge Graph** connects those pieces so the system understands relationships rather than isolated documents.
-- The goal is to move from repeated context gathering toward **faster and safer software delivery**.
-
-### What to explain to the audience
-Think of the LLM as the engine. The harness is the operating system around that engine, while the Second Brain provides long-term organizational memory.
+The talk track is designed to explain the idea rather than read the slide. Each slide includes the message to land, suggested speaker points, what to emphasize, and a transition to the next slide.
 
 ---
 
-## Slide 2 — The problem: coding AI is powerful, but context is fragmented
+## Slide 1 — Second Brain as an AI Agent Harness
 
 ### Main message
-Most AI coding inefficiency comes from repeatedly rebuilding context.
+Project memory plus execution rules turn fast AI coding into grounded, repeatable engineering delivery.
 
-### Talking points
-- Developers often start each AI conversation almost from zero.
-- We repeatedly explain architecture, APIs, coding patterns, dependencies, testing requirements, business rules, and previous decisions.
-- The model usually sees the current file, the prompt, and whatever context we manually attach.
-- It may generate code that is syntactically correct but architecturally wrong.
-- This creates context hunting, inconsistent implementation, repeated explanations, additional review cycles, and loss of knowledge across sessions.
+### Suggested speaker points
+- AI coding tools can generate code very quickly, but speed alone does not guarantee that the result fits our architecture, standards, or domain.
+- The solution is to combine two complementary capabilities: an **AI Agent Harness** and a **Second Brain**.
+- The **AI Harness** provides the execution discipline: instructions, tools, guardrails, and a workflow the agent must follow.
+- The **Second Brain** provides persistent engineering knowledge: architecture, domain knowledge, decisions, and lessons learned.
+- The third element on the slide is **evidence-first context**. We do not want the model to answer from assumptions; we want it to retrieve task-specific evidence, cite the relevant project knowledge, and make unknowns explicit.
+- The operating model at the bottom summarizes the whole approach: **read project context → execute with guardrails → validate evidence → retain learning**.
 
-### What to explain to the audience
-The AI is often not failing because it cannot code. It is failing because we have not given it enough organizational knowledge to make the correct engineering decision.
+### What to emphasize
+The key idea is that we are not building a bigger prompt. We are building a **system around the model** so that the model works with persistent project knowledge and repeatable rules.
 
-A useful example is: **“Add a new Kafka consumer.”** Without context, AI does not know the organization’s retry approach, partitioning strategy, error handling, observability requirements, naming conventions, or deployment constraints.
+### Transition
+“To understand why this matters, first look at what happens when AI coding works without persistent project context.”
 
 ---
 
-## Slide 3 — What an AI agent harness adds
+## Slide 2 — Coding AI is powerful—but its context is fragmented
 
 ### Main message
-The harness converts prompting into a structured engineering process.
+**Fast is not the same as repeatable.** The biggest problem is not code generation speed; it is fragmented context.
 
-### Talking points
-1. **Understand** — identify the requirement and acceptance criteria.
-2. **Retrieve** — find relevant service, domain, architecture, and historical context.
-3. **Plan** — determine impacted files and bounded changes.
-4. **Execute** — generate or modify code using approved patterns and tools.
-5. **Validate** — build, test, run static analysis, and inspect the diff.
-6. **Learn** — capture important decisions or fixes for future tasks.
+### Suggested speaker points
+- A model can produce code in seconds, but every new session often starts with very little knowledge of the project.
+- In the first problem area, **there is no project memory**. Developers repeatedly explain architecture, conventions, APIs, tests, and prior decisions.
+- In the second area, the model normally sees a **narrow context window**: the current file, the current prompt, and whatever someone manually attached.
+- That is enough to produce locally plausible code, but it may miss relationships elsewhere in the system.
+- In the third area, knowledge effectively resets between sessions. The next developer—or even the same developer tomorrow—may have to rediscover the same information.
+- The result is more context hunting, inconsistent outputs, repeated review cycles, lost learning, and unclear ownership.
+- The bottom statement is important: **fragmented context → plausible code → violated local constraints**.
 
-### What to explain to the audience
-Today we often ask: **“Implement this requirement.”**
+### What to emphasize
+A strong model can still make a weak engineering decision when it lacks project relationships and evidence. In security-sensitive work this tax is even higher because developers repeatedly rediscover controls, ownership, and remediation history.
 
-With a harness, the system internally transforms that into:
+### Example to give
+“If I ask the model to add a new Kafka consumer, it may generate perfectly valid Spring code. But without project context it does not know our retry strategy, topic conventions, error handling, security controls, observability rules, or previous design decisions.”
 
-**Understand → collect context → plan → implement → verify → retain knowledge**
-
-The key idea is that **the prompt is no longer the entire workflow**.
+### Transition
+“So the question becomes: how do we make that project context reusable rather than explaining it again in every prompt?”
 
 ---
 
-## Slide 4 — Why the harness accelerates AI-assisted coding
+## Slide 3 — Two layers turn context into repeatable execution
 
 ### Main message
-Acceleration comes mainly from reducing repeated reasoning and rework.
+The harness governs **how work is performed**; the Second Brain supplies **the facts the work is based on**.
 
-### Talking points
-- **Less context hunting:** service and architecture information can be retrieved automatically.
-- **Reusable prompts:** common engineering tasks become predefined playbooks.
-- **Fewer rework loops:** constraints are given before AI writes code.
-- **Automatic conventions:** frameworks, libraries, security requirements, and patterns travel with the task.
-- **Repeatable validation:** testing is part of the agent process instead of something remembered afterward.
-- **Compounding learning:** solved incidents improve future tasks.
+### Suggested speaker points
+- The top layer is the **execution layer**, represented by `ai-agent-harness/`.
+- It contains **bootstrap rules**: what the agent must read or establish before it begins changing code.
+- It contains **routing**: which project or domain knowledge should be loaded for a particular task.
+- It contains **response standards**: how the agent should plan, explain, validate, and report its work.
+- It also contains **memory rules**: what useful knowledge should be persisted after the task is complete.
+- The lower layer is the **knowledge layer**, represented by `second-brain/`.
+- This layer holds domain knowledge, architecture, patterns, decisions, and incidents.
+- The red bridge in the middle is the key operating rule: **evidence first**. Read context, reason from file-backed knowledge, and explicitly mark what is unknown instead of inventing an answer.
 
-### What to explain to the audience
-The objective is not simply to generate code faster. The real productivity gain is to **generate the right change with fewer iterations**.
+### What to emphasize
+The harness and Second Brain solve different problems. The harness without knowledge gives disciplined but poorly informed execution. The Second Brain without a harness gives useful information but no consistent way to apply it. Together they create repeatability.
 
-One 30-second code generation followed by two hours of corrections is not acceleration.
+### Transition
+“Once these two layers exist, every coding session can follow the same controlled workflow.”
 
 ---
 
-## Slide 5 — The Second Brain: persistent engineering memory
+## Slide 4 — Every session follows a read-first, validated workflow
 
 ### Main message
-Important engineering knowledge should survive beyond individual conversations.
+The harness converts project context into a required sequence from grounded start to reusable memory.
 
-### Talking points
-The Second Brain can hold:
-- Architecture decisions and constraints
-- Service responsibilities and dependencies
-- APIs and Kafka topics
-- Schemas and database tables
-- Domain vocabulary
-- Known errors and fixes
-- Runbooks and review checklists
-- Coding patterns and prompt templates
-- Testing and security practices
+### Suggested speaker points
+Walk left to right through the six stages:
 
-### What to explain to the audience
-Chat history is useful, but it is not a reliable engineering knowledge system.
+1. **Read** — coding does not begin until the required project context has been loaded.
+2. **Route** — identify the relevant service and domain files instead of loading everything.
+3. **Plan** — create a bounded plan and identify the impacted files before making changes.
+4. **Execute** — use approved tools and established project patterns.
+5. **Validate** — produce build results, tests, evidence, and a reviewable diff.
+6. **Remember** — useful decisions and fixes become reusable project memory for future work.
 
-A Second Brain should be:
-- Persistent
-- Structured
-- Searchable
-- Versionable
-- Reusable by multiple developers and agents
+- This means the model is not simply given a prompt and allowed to improvise.
+- The workflow deliberately separates understanding, planning, execution, and validation.
+- The memory stage closes the loop so that solving a problem once can make the next similar task easier.
 
-Most importantly: **do not send the whole Second Brain to the model**. Retrieve only the small portion relevant to the current task. This keeps prompts focused and reduces token usage.
+### What to emphasize
+The black banner is the core shift: **the prompt is no longer the workflow**. The prompt expresses the developer’s intent; the harness determines the reliable execution process.
+
+### Transition
+“This structure is where the acceleration comes from—not because the model types code faster, but because we remove avoidable work before and around code generation.”
 
 ---
 
-## Slide 6 — Knowledge graph = a smarter Second Brain
+## Slide 5 — The harness removes avoidable work before code generation
 
 ### Main message
-Knowledge becomes significantly more powerful when relationships are represented explicitly.
+Six mechanisms turn project knowledge into faster, safer, and more repeatable delivery.
 
-### Talking points
-Use the microservice in the center of the diagram to explain relationships such as:
-- Service **consumes** Kafka topic
-- Service **publishes** another topic
-- Service **reads/writes** specific SQL tables
-- Service is **constrained by** an architecture decision
-- Service was **affected by** a previous production incident
-- Service is **validated by** particular security and testing requirements
+### Suggested speaker points
+- **Less context hunting:** architecture and service facts can be retrieved instead of manually rediscovered.
+- **Reusable prompts:** common tasks become structured playbooks rather than one-off prompt engineering.
+- **Fewer rework loops:** constraints and acceptance criteria are available before generation, reducing “generate-review-correct” cycles.
+- **Automatic conventions:** libraries, security rules, coding standards, and test expectations travel with the task.
+- **Repeatable validation:** build, test, review, and diff steps are part of the workflow rather than optional follow-up work.
+- **Compounding learning:** every resolved incident or design choice can improve future tasks.
 
-### What to explain to the audience
-Keyword search may find documents mentioning a service.
+### What to emphasize
+The productivity metric should not be “how fast did the model produce code?” It should be “how quickly did we reach a correct, validated change with minimal rework?”
 
-A Knowledge Graph can answer a more valuable engineering question: **“If I modify this service, what else is likely to be affected?”**
+### Example to give
+“Thirty seconds of generation followed by two hours of corrections is not acceleration. If the harness prevents those correction loops, that is the real gain.”
 
-Retrieval can then follow relationships such as:
-
-**Service → API → downstream consumer → schema → test → architecture decision**
-
-This is more useful than searching isolated documents independently.
+### Transition
+“The same principle becomes especially valuable in security and vulnerability remediation, where rediscovery happens at every handoff.”
 
 ---
 
-## Slide 7 — How the Second Brain improves prompting
+## Slide 6 — Reusable context compresses the vulnerability-fix loop
 
 ### Main message
-Better prompts are created by selecting better evidence, not by simply making prompts longer.
+The gain is not that AI writes a security fix faster; the gain is that the team stops rediscovering the same information at every stage.
 
-### Talking points
-Use the example: **“Add a new harmonization rule to the trade service and update tests.”**
+### Suggested speaker points
+First explain the top row—**without shared memory**:
+- During **triage**, people search the architecture again to understand the affected component.
+- During **implementation**, remediation approaches may be reinvented even if the organization solved a similar issue before.
+- During **validation**, teams rebuild regression checklists and security evidence.
+- During **handoff**, pending items and reasoning can be lost.
+- This creates repeated discovery at every transition.
 
-The context compiler can retrieve:
-- Service responsibilities
-- Current harmonization configuration
-- Coding conventions
-- Impacted Kafka or API contracts
-- Existing tests
-- Architecture decisions
-- Previous similar implementations
+Then explain the lower row—**with Second Brain + Harness**:
+- **Triage:** route directly to the relevant security components and known ownership.
+- **Implement:** reuse established remediation patterns.
+- **Validate:** execute the known regression and security checklist.
+- **Continue:** persist findings, decisions, and next items so another person or agent can resume without starting over.
 
-It then constructs a focused prompt containing:
-- **Goal**
-- **Scope**
-- **Constraints**
-- **Evidence**
-- **Acceptance criteria**
-- **Output format**
-- **Validation steps**
+### What to emphasize
+This improves four things simultaneously: **faster triage, faster implementation, better quality, and better continuity**.
 
-### What to explain to the audience
-Instead of developers manually writing very large prompts, the system creates the prompt dynamically.
+The Second Brain is valuable not only for coding knowledge; it also preserves the reasoning and operational state around the change.
 
-The user gives **intent**. The harness produces **context-rich instructions**.
+### Transition
+“To retrieve the right context automatically, simple keyword search is often not enough. We also need to understand relationships.”
 
 ---
 
-## Slide 8 — Recommended architecture: Context OS for coding agents
+## Slide 7 — Relationships make retrieval smarter than keyword search
 
 ### Main message
-Treat engineering context as a platform capability.
+A Knowledge Graph makes the Second Brain relationship-aware so the agent can retrieve the context that is relevant to the **change**, not merely documents containing the same words.
 
-### Talking points
-#### Sources
-- Git
-- Jira
-- Documentation
-- Source code
-- Telemetry
-- Previous conversations
+### Suggested speaker points
+- Use the microservice in the center as the starting node.
+- The service **publishes to or consumes from Kafka topics**.
+- It **reads from and writes to SQL tables**.
+- It is **constrained by architecture decisions**.
+- It is **affected by known incidents** that may contain important lessons or caveats.
+- It is **validated by test and security rules**.
+- If a developer changes the service, these relationships tell the retrieval system what else may need to be considered.
+- A graph can therefore traverse dependencies and constraints rather than returning isolated keyword matches.
 
-#### Knowledge layer
-- Markdown
-- ADRs
-- Search index
-- Knowledge Graph
+### What to emphasize
+The engineering question is not simply, “Which documents mention this microservice?” The better question is, **“If I change this microservice, what related contracts, decisions, tests, data stores, and incidents should the agent know about?”**
 
-#### Context compiler
-- Classify the task
-- Retrieve related knowledge
-- Rank evidence
-- Remove irrelevant content
+### Example to give
+“A change to a Kafka schema may affect the producer, the consumer, a validation rule, and an earlier incident. Keyword search may return one of those. Relationship traversal can intentionally retrieve all of them.”
 
-#### Agent harness
-- Planner
-- Coder
-- Reviewer
-- Validator
-- Memory/documentation writer
-
-#### Coding surfaces
-- IntelliJ
-- GitHub Copilot
-- CLI
-- CI/CD
-
-### What to explain to the audience
-The idea is not to replace existing developer tools. Instead, the same organizational intelligence can sit behind multiple coding experiences.
-
-An IntelliJ developer and a CI agent can therefore use the **same engineering knowledge base**.
+### Transition
+“Once we can identify those relationships, we can use them to build a much better prompt automatically.”
 
 ---
 
-## Slide 9 — Prompt-first operating model
+## Slide 8 — Prompt quality comes from selected evidence—not prompt length
 
 ### Main message
-Separate persistent knowledge from task-specific prompting.
+A context compiler turns a simple user request into a bounded, evidence-rich task specification.
 
-### Talking points
-Persistent assets may include:
-- `AGENTS.md`
-- `ARCHITECTURE.md`
-- `SERVICES.md`
-- `DOMAINS.md`
-- ADRs
-- `patterns/`
-- `skills/`
-- `prompts/`
-- `incidents/`
+### Suggested speaker points
+- Start with the user request on the left: **‘Add a new harmonization rule to the trade service and update tests.’**
+- The request describes the goal, but it does not contain the project relationships needed to execute safely.
+- The **context compiler** fills that gap by retrieving service responsibilities, harmonization maps, coding conventions, Kafka/API contracts, existing tests, constraints/ADRs, and similar prior changes.
+- It then constructs the working prompt on the right with explicit sections:
+  - **Goal**
+  - **Scope**
+  - **Constraints**
+  - **Evidence**
+  - **Acceptance criteria**
+  - **Output format**
+  - **Validation steps**
+- This means the developer does not need to manually construct an enormous prompt each time.
+- The system creates a focused prompt from the relevant project evidence.
 
-For each task, the developer provides only:
-- Goal
-- Requirement
-- Target service
-- Constraints
-- Acceptance criteria
-- Desired output
+### What to emphasize
+More tokens do not automatically mean better context. The objective is **selected, high-relevance evidence**. The best prompt is not necessarily the longest prompt; it is the one that contains the facts and constraints needed for the task.
 
-The retrieval system then performs:
-- Semantic search
-- Graph traversal
-- Dependency expansion
-- Previous-fix retrieval
-- Prompt pruning
+### Example to give
+“The user can express intent in one sentence. The harness can transform that into a precise engineering task because the project already knows its services, maps, contracts, tests, and decisions.”
 
-### What to explain to the audience
-This is particularly important for token efficiency.
-
-Instead of putting dozens of documents into every prompt, **store them once, retrieve the relevant pieces, and create a compact context bundle**.
-
-Stable context can also be reused or cached while task-specific information changes.
+### Transition
+“That brings us to the final message: when these capabilities work together, AI coding stops being isolated assistance and becomes an engineering system.”
 
 ---
 
-## Slide 10 — Adoption path: build the memory before adding autonomy
+## Slide 9 — Context turns AI coding into a system
 
 ### Main message
-Do not jump directly to fully autonomous coding agents.
+Three capabilities work together to turn AI coding into reusable, governed, continuously improving engineering delivery.
 
-### Talking points
-#### Stage 1 — Context files
-Document architecture, services, domains, and standards.
+### Suggested speaker points
+- **AI Agent Harness = execution discipline.** It defines how work is read, routed, planned, executed, validated, and remembered.
+- **Second Brain = persistent engineering memory.** It preserves the knowledge that should survive across sessions and developers.
+- **Knowledge Graph = relationship-aware context retrieval.** It helps identify which pieces of that knowledge matter to the current change.
+- These are complementary capabilities rather than alternatives.
+- Together they make AI-assisted engineering **reusable**, because knowledge and playbooks are not recreated each time.
+- They make it **governed**, because execution and validation follow explicit rules.
+- They make it **continuously improving**, because decisions, fixes, and lessons feed back into the project memory.
 
-#### Stage 2 — Prompt templates
-Standardize how recurring engineering tasks are described.
+### What to emphasize
+The long-term advantage is not a one-time increase in code-generation speed. It is the **compounding value of persistent context**: every useful task can leave the engineering system better prepared for the next one.
 
-#### Stage 3 — Retrieval index
-Automatically discover relevant information.
-
-#### Stage 4 — Knowledge Graph
-Add dependencies and relationships.
-
-#### Stage 5 — Agent workflows
-Plan → code → test → review → learn.
-
-### What to explain to the audience
-Organizations often try to start at Stage 5, but autonomous agents without good context simply automate mistakes faster.
-
-The better sequence is:
-
-**Knowledge first → retrieval second → autonomy third**
-
----
-
-## Slide 11 — What success looks like
-
-### Main message
-Measure quality and context reuse, not just the amount of AI-generated code.
-
-### Talking points
-Track metrics such as:
-- **Context reuse:** percentage of tasks successfully using reusable engineering knowledge
-- **First-pass quality:** how often generated changes are accepted with minimal correction
-- **Cycle time:** time from requirement to validated implementation
-- **Knowledge capture:** how many important fixes and decisions are added back to the Second Brain
-
-Additional measures can include:
-- Review iterations
-- Escaped defects
-- Build failures
-- Prompt size
-- Token usage
-- Developer time spent collecting context
-
-### What to explain to the audience
-The wrong KPI is: **“How many lines of AI-generated code did we produce?”**
-
-A better KPI is: **“How much engineering effort did we eliminate while maintaining or improving quality?”**
-
----
-
-## Slide 12 — Final message
-
-### Main message
-Bring the three concepts together.
-
-### Talking points
-- **AI Agent Harness = execution discipline**
-- **Second Brain = persistent engineering memory**
-- **Knowledge Graph = relationship-aware context retrieval**
-
-Together they create a system where:
-
-**Developer intent**
-↓
-**Relevant organizational knowledge**
-↓
-**Structured agent workflow**
-↓
-**Validated code change**
-↓
-**New knowledge captured**
-
-The process continuously improves.
-
-### Strong closing statement
-The real opportunity with AI-assisted development is not merely giving every developer a more powerful autocomplete. It is giving AI access to the same architecture knowledge, domain understanding, engineering standards, previous decisions, and lessons that an experienced engineer gradually builds over years.
-
-The Agent Harness provides the process, the Second Brain provides the memory, and the Knowledge Graph provides the relationships. Together, they allow AI-assisted coding to become repeatable, scalable, and continuously improving.
+### Suggested closing statement
+“AI is already capable of generating code quickly. The next step is to make that capability reliable inside our engineering environment. The harness provides execution discipline, the Second Brain provides persistent memory, and the Knowledge Graph supplies relationship-aware context. Together, they turn isolated AI coding into repeatable engineering delivery.”
 
 ### Final line
-> **Don’t make every AI prompt rediscover your engineering organization.**
+> **Do not make every AI session rediscover the project. Make project context part of the engineering system.**
