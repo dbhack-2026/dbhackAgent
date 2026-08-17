@@ -1,0 +1,1 @@
+& "C:\Program Files\Anaconda3\python.exe" -c "import importlib.util as i; print('torch', bool(i.find_spec('torch'))); print('transformers', bool(i.find_spec('transformers'))); print('llama_cpp', bool(i.find_spec('llama_cpp'))); print('ctransformers', bool(i.find_spec('ctransformers')))"
