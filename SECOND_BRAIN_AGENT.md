@@ -1,12 +1,11 @@
 # Local Second-Brain Context Agent
 
 This package retrieves context from a local `state.db` SQLite file and Markdown
-knowledge files without requiring a database server or any third-party Python
-package.
+knowledge files, then can call a GitHub Models-compatible chat-completions
+endpoint using the same effective connection strategy as the working Java
+utility shown during development.
 
-It is intentionally separated from the existing Vertex/Gemini application.
-The retrieval layer can later be called from an IntelliJ integration, an MCP
-server, a local HTTP endpoint, or an LLM wrapper.
+The retrieval layer still has no third-party Python runtime dependency.
 
 ## Expected repository layout
 
@@ -54,9 +53,50 @@ INSERT INTO relationships VALUES
 
 The database is opened in SQLite read-only mode by the agent.
 
-## Run locally
+## Model connection strategy
 
-From the repository root:
+The Python client in `second_brain_agent/inference.py` mirrors the behavior of
+the working desktop utility:
+
+1. Build a JSON request with `model` and `messages`.
+2. POST it to the configured chat-completions endpoint.
+3. Send the inference credential as an `Authorization: Bearer ...` header.
+4. Optionally route the HTTPS request through an explicit corporate HTTP proxy.
+5. Optionally authenticate to that proxy with username/password.
+6. Parse the answer from `choices[0].message.content`.
+7. Parse token counts from the response `usage` object when present.
+
+Credentials are never hard-coded by this package and are never written to
+`state.db` or Markdown notes.
+
+### Environment variables
+
+Set these in the IntelliJ run configuration, terminal environment, or an
+enterprise-approved secret injection mechanism:
+
+```text
+SECOND_BRAIN_MODEL=your-model-id
+SECOND_BRAIN_INFERENCE_TOKEN=your-inference-token
+SECOND_BRAIN_MODELS_URL=https://models.github.ai/inference/chat/completions
+
+# Only when your network requires an authenticated proxy:
+SECOND_BRAIN_PROXY_HOST=your-proxy-host
+SECOND_BRAIN_PROXY_PORT=8080
+SECOND_BRAIN_PROXY_USERNAME=your-proxy-user
+SECOND_BRAIN_PROXY_PASSWORD=your-proxy-password
+
+# Optional
+SECOND_BRAIN_TIMEOUT_SECONDS=120
+```
+
+See `second_brain_agent.env.example` for the same placeholders.
+
+Do **not** put real tokens, proxy passwords, or personal credentials in the
+repository.
+
+## End-to-end run
+
+From the repository root, after the environment variables are set:
 
 ```bash
 python -m second_brain_agent.cli \
@@ -65,77 +105,89 @@ python -m second_brain_agent.cli \
   "Why could daas-trade-manager be experiencing Kafka delays?"
 ```
 
-The output is Markdown suitable for supplying to an LLM:
-
-```text
-# Retrieved second-brain context
-
-## Query
-Why could daas-trade-manager be experiencing Kafka delays?
-
-## Knowledge-graph relationships
-- daas-trade-manager --USES--> kafka
-...
-
-## Relevant notes
-### knowledge/services/daas-trade-manager.md
-...
-```
-
-## Run the tests
-
-No external packages are needed:
-
-```bash
-python -m unittest tests/test_second_brain_agent.py
-```
-
-## IntelliJ integration
-
-A normal ChatGPT IntelliJ plugin will not automatically execute this local
-retrieval code merely because `state.db` is in the project. There must be an
-integration point.
-
-Recommended progression:
-
-1. **Validate retrieval from the IntelliJ terminal** using the CLI above.
-2. Add the CLI as an IntelliJ **External Tool** so it can run against the current
-   project.
-3. If the AI plugin supports **MCP/tool calling**, expose `ContextBuilder.build`
-   through a small local MCP server and let the model call it as a tool.
-4. If the plugin has no tool-extension mechanism, build a small IntelliJ plugin
-   or local wrapper that sends the user prompt to this context builder first,
-   then sends `context + prompt` to the chosen LLM.
-
-The important boundary is:
+The default flow is now:
 
 ```text
 User prompt
     |
     v
-Local context agent
-    |-- query state.db
+Local context builder
+    |-- query state.db read-only
     |-- traverse relationships
     |-- search relevant Markdown
     v
 Compact context bundle
     |
     v
-LLM / IntelliJ AI integration
+GitHub Models compatible endpoint
+    |-- bearer inference token
+    |-- optional authenticated corporate proxy
+    v
+Model answer
 ```
 
-This avoids sending the whole second brain on every request and avoids allowing
-the LLM to execute arbitrary SQL.
+To inspect exactly what local context would be sent without making an inference
+request:
 
-## Next extension
+```bash
+python -m second_brain_agent.cli \
+  --context-only \
+  --db state.db \
+  --notes knowledge \
+  "What depends on Kafka?"
+```
 
-The next useful addition is a tool interface with a few narrow operations such
-as:
+To print both the retrieved context and the answer:
 
-- `find_entity(name)`
-- `find_related(entity)`
-- `search_notes(query)`
-- `build_context(prompt)`
+```bash
+python -m second_brain_agent.cli \
+  --show-context \
+  --db state.db \
+  --notes knowledge \
+  "What depends on Kafka?"
+```
 
-Those can be exposed over MCP or a local endpoint when the IntelliJ AI plugin's
-extension mechanism is known.
+## Why the model cannot query `state.db` directly
+
+The LLM itself is not given arbitrary SQL execution capability. The local
+`ContextBuilder` performs bounded read-only retrieval first and sends only the
+resulting context to the model. This keeps the database access deterministic
+and prevents generated SQL from becoming an execution surface.
+
+## IntelliJ integration
+
+A normal AI chat plugin does not automatically call this local agent simply
+because the files exist in the project. The immediate options are:
+
+1. Run the CLI from the IntelliJ terminal.
+2. Add the CLI as an IntelliJ External Tool.
+3. If the installed AI plugin supports MCP/tool calling, expose the local
+   context/inference agent as an MCP tool.
+4. Otherwise create a small IntelliJ action/plugin that calls
+   `SecondBrainAgent.ask()` and renders the returned answer.
+
+The important part is now complete: `SecondBrainAgent.ask(prompt)` performs both
+local retrieval and inference, so an IDE integration only needs to pass the
+prompt and display the answer.
+
+## Run the tests
+
+The retrieval tests use the standard library only:
+
+```bash
+python -m unittest tests/test_second_brain_agent.py
+```
+
+Additional inference tests should mock the HTTP opener so no real credentials
+or network calls are required during test execution.
+
+## Security notes
+
+- `state.db` is opened read-only.
+- SQL parameters are bound rather than interpolated.
+- TLS certificate verification remains enabled.
+- Tokens and proxy credentials come only from environment variables.
+- HTTP error bodies are truncated before being surfaced.
+- The agent never logs authorization headers or credentials.
+- Do not disable TLS verification to work around enterprise certificate issues;
+  configure the machine/Python trust store correctly instead.
