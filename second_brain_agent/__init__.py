@@ -1,10 +1,28 @@
-"""Local second-brain retrieval agent.
+"""Local second-brain retrieval and inference agent.
 
-The package deliberately has no third-party runtime dependencies. It reads a
-local SQLite state database and Markdown files, then builds a compact context
-bundle that can be supplied to an LLM or IDE integration.
+The package reads a local SQLite state database and Markdown files, builds a
+compact context bundle, and can send that context to a configured GitHub
+Models-compatible chat-completions endpoint.
 """
 
+from .agent import AgentResult, SecondBrainAgent
 from .context import ContextBuilder, ContextBundle
+from .inference import (
+    GitHubModelsClient,
+    InferenceConfig,
+    InferenceConfigError,
+    InferenceError,
+    InferenceResult,
+)
 
-__all__ = ["ContextBuilder", "ContextBundle"]
+__all__ = [
+    "AgentResult",
+    "ContextBuilder",
+    "ContextBundle",
+    "GitHubModelsClient",
+    "InferenceConfig",
+    "InferenceConfigError",
+    "InferenceError",
+    "InferenceResult",
+    "SecondBrainAgent",
+]
