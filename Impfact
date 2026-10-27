@@ -1,0 +1,180 @@
+I can help you complete your 2026 Year-End Self Evaluation in Workday, using the objectives in your screenshots and the technical work you've handled across the DaaS platform.
+
+Your evaluation has three main areas:
+
+* WHAT – Priorities: Comments against each of your seven objectives.
+
+* WHAT – Overall Delivery: Summary of your contributions, achievements, ownership, and business impact.
+
+* HOW – Overall Behaviour: Collaboration, accountability, problem-solving, risk management, and professional conduct.
+
+I recommend positioning your contributions around technical ownership, production stability, performance improvement, delivery execution, security controls, and preparation for the Snowflake migration.
+
+The drafts below are written in a professional, achievement-oriented tone. I've avoided claiming specific metrics or completed certifications that we haven't verified.
+
+### 1\. WHAT – Priorities
+
+Ready-to-edit comments for your Workday evaluation
+
+### Priority 1: Business deliverables
+
+Throughout 2026, I contributed to the delivery of key business and technology initiatives across the DaaS platform, focusing on meeting agreed timelines, maintaining quality, and ensuring alignment with business requirements.
+
+I actively participated in requirement analysis, technical design, development, testing, and production deployment activities. I worked closely with stakeholders to identify dependencies, address technical challenges, and highlight delivery risks early.
+
+I maintained visibility of delivery progress through Jira updates, regular communication, and coordination with dependent teams. I also supported investigation and resolution of complex technical issues to minimize delivery disruption.
+
+My focus remained on delivering reliable, maintainable solutions while balancing business priorities, technical improvements, and production support responsibilities.
+
+### Priority 2: Process improvement and SDLC adherence
+
+I maintained a strong focus on development discipline, Jira hygiene, code quality, and adherence to the established SDLC and release management processes.
+
+I regularly maintained Jira work items with relevant progress updates, comments, and effort tracking, while following code check-in, peer review, and release procedures.
+
+I contributed to technical troubleshooting and improvements in application configuration, SQL performance, Kafka processing, and deployment practices, helping identify opportunities for more efficient and reliable delivery.
+
+I also supported release readiness by reviewing dependencies, identifying potential risks, and coordinating with relevant teams to address issues before production deployment.
+
+### Priority 3: Keep the lights on – BAU and production support
+
+I actively supported the stability and operational reliability of the DaaS applications through production monitoring, issue investigation, troubleshooting, and coordination with support teams.
+
+I worked on complex issues involving Kafka consumers and producers, SQL Server performance, application connectivity, authentication, and microservice processing. This included investigating CPU utilization, stored procedure execution, concurrency, transaction handling, and application-level performance bottlenecks.
+
+I leveraged Splunk logs, monitoring dashboards, application diagnostics, and database analysis to identify potential root causes and support appropriate remediation.
+
+I also supported production deployments, technical escalations, and knowledge sharing with support teams, with a focus on maintaining service continuity and reducing recurring operational issues.
+
+### Priority 4: Individual goals and upskilling
+
+I continued strengthening my technical capabilities in Java, Spring Boot, Kafka, SQL Server performance optimization, distributed systems, and cloud-based data platforms.
+
+I developed a deeper understanding of SQL Server query optimization, execution plans, parallelism, stored procedure performance, and resource utilization through practical investigation of application performance challenges.
+
+I also explored Snowflake architecture, data migration approaches, streaming ingestion, and modern data engineering concepts relevant to the organization's evolving data platform strategy.
+
+In parallel, I explored AI-assisted development and engineering productivity tools to understand opportunities for improving code analysis, troubleshooting, and development efficiency.
+
+These learning activities helped me apply technical knowledge to existing platform challenges and prepare for future architecture and technology changes.
+
+### Priority 5: Application and infrastructure security controls – TISO
+
+In my TISO responsibilities, I focused on supporting application security governance, risk identification, and adherence to established technology control processes.
+
+I participated in reviewing application security findings, understanding remediation recommendations, assessing implementation dependencies, and coordinating with relevant stakeholders on appropriate resolution approaches.
+
+I also considered existing application architecture, operational dependencies, and upcoming platform modernization initiatives when evaluating security improvements, to ensure that remediation approaches remained practical and aligned with broader technology strategy.
+
+I supported control-related activities and discussions covering application security, access management, production data handling, and change governance, with an emphasis on risk awareness, accountability, and appropriate stakeholder engagement.
+
+### Priority 6: Compliance
+
+I remained committed to following organizational policies, mandatory compliance requirements, and professional conduct expectations throughout the performance year.
+
+I maintained awareness of information security, data handling, change management, and technology risk requirements in my day-to-day activities.
+
+I supported a control-conscious working environment by following established approval and governance processes, raising concerns when appropriate, and ensuring that technical decisions considered operational and compliance implications.
+
+I also maintained focus on required administrative activities, including mandatory training, timesheet reporting, and working arrangements in accordance with organizational expectations.
+
+### 2\. WHAT – Overall Delivery
+
+This is the most important section because it summarizes your overall contribution beyond individual objectives.
+
+Throughout 2026, I demonstrated strong technical ownership, accountability, and commitment to delivering reliable solutions across the DaaS platform while balancing business deliverables, production support, process improvements, and technology modernization initiatives.
+
+**Key contributions and achievements:**
+
+- **Business Delivery:** Contributed to the design, development, enhancement, and delivery of business-critical DaaS microservices and data processing capabilities. Worked across multiple application components and integration points to address complex requirements and technical dependencies.
+
+- **Technical Problem-Solving:** Investigated challenging issues involving Kafka transactional processing, consumer concurrency, SQL Server stored procedure performance, application scalability, and resource utilization. Applied systematic analysis to identify bottlenecks and evaluate improvements to application reliability and efficiency.
+
+- **Production Stability:** Took ownership of technical investigations and production support activities, leveraging Splunk, application logs, and database diagnostics to troubleshoot issues, coordinate resolutions, and support service continuity.
+
+- **Engineering Quality:** Focused on maintainable solutions, SDLC adherence, code quality, Jira transparency, and effective release coordination. Worked to identify potential risks and technical dependencies early in the delivery lifecycle.
+
+- **Security and Governance:** Supported application security control activities and remediation discussions in my TISO capacity, considering technical feasibility, architectural alignment, and organizational risk requirements.
+
+- **Technology Modernization:** Actively engaged in understanding emerging data platform technologies, including Snowflake and modern data engineering approaches, to support future transformation initiatives and architectural discussions.
+
+- **Collaboration and Ownership:** Worked with development teams, production support, infrastructure, architecture, and other stakeholders to resolve technical challenges and support shared delivery objectives.
+
+Overall, I believe I made meaningful contributions through my technical expertise, problem-solving capabilities, and willingness to take ownership of complex challenges. I continued to expand my knowledge while maintaining a strong focus on delivery quality, application stability, and alignment with organizational priorities.
+
+### 3\. HOW – Overall Behaviour
+
+This section should highlight how you worked, rather than repeating what you delivered.
+
+Throughout the year, I demonstrated accountability, collaboration, adaptability, and a solution-oriented approach in carrying out my responsibilities.
+
+**Ownership and Accountability:** I took responsibility for investigating complex technical issues, following through on challenges, and proactively identifying risks and dependencies. I remained committed to finding sustainable solutions rather than focusing only on immediate fixes.
+
+**Collaboration and Teamwork:** I worked constructively with colleagues across development, support, infrastructure, architecture, and other teams. I actively participated in technical discussions, shared knowledge, and supported collective problem-solving.
+
+**Continuous Improvement:** I consistently looked for opportunities to improve application performance, operational stability, engineering practices, and development efficiency. I remained open to feedback and alternative approaches when addressing technical challenges.
+
+**Adaptability and Learning:** I continued developing my technical knowledge and adapting to evolving technologies and organizational priorities, including modern data platforms, cloud technologies, and AI-assisted engineering tools.
+
+**Risk and Control Awareness:** I approached technical decisions with consideration for security, compliance, production stability, and established governance processes, particularly in my TISO responsibilities.
+
+**Communication and Professionalism:** I aimed to communicate technical issues, risks, dependencies, and potential solutions clearly, while maintaining constructive working relationships and supporting team objectives.
+
+Overall, I demonstrated a responsible, collaborative, and improvement-focused approach, contributing both to immediate delivery requirements and longer-term technology objectives.
+
+### 4\. Strengthening your evaluation
+
+The drafts are a solid starting point, but the strongest self-evaluations distinguish work performed from measurable outcomes achieved.
+
+For example:
+
+| Area              | Evidence worth adding                                              |
+| ----------------- | ------------------------------------------------------------------ |
+| Business delivery | Features/releases delivered, timelines met                         |
+| Performance       | CPU reduction, SQL execution improvements, throughput gains        |
+| BAU               | Incidents resolved, recurrence prevented, monitoring improvements  |
+| Security          | Recertifications completed, findings addressed, control compliance |
+| Upskilling        | Training hours, courses, certifications completed                  |
+| Process           | Jira/SDLC compliance and release quality                           |
+
+I would particularly emphasize your work on SQL Server CPU saturation, Kafka consumer concurrency, production troubleshooting, and technical architecture discussions because these demonstrate engineering depth and ownership.
+
+### 5\. A few details to finalize your evaluation
+
+What rating best reflects your performance?
+
+Exceeds expectations
+
+Meets expectations
+
+Exceptional / significantly exceeds
+
+Upskilling and training progress
+
+40+ hours and certification/training completed
+
+Some training completed, no certification yet
+
+Primarily hands-on learning
+
+Business delivery commitments
+
+All agreed deliverables completed on time
+
+Most delivered; some reprioritized or delayed
+
+Mixed results with significant dependencies
+
+TISO and compliance activities
+
+All assigned controls completed, no outstanding issues
+
+Mostly completed, with some open findings
+
+Significant activities still in progress
+
+Any major achievements you want highlighted? (Optional)
+
+Refine my self-evaluation
+
+These answers will help me make the final submission stronger and more specific without overstating your achievements.
