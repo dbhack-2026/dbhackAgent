@@ -1,0 +1,6 @@
+.agent-state/
+__pycache__/
+*.pyc
+audit/jira-collection-report.md
+audit/jira-status-comments.json
+audit/jira-duplicate-comments.md
