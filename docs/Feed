@@ -1,0 +1,141 @@
+Year-End Performance Rating Proposal — Strong Performance
+
+Review Period: November 2025 – November 2026
+
+Overall Rating Recommendation: Strong Performance
+
+I believe my performance during this evaluation period merits a Strong Performance rating, based on consistent delivery across multiple business-critical data platforms, hands-on technical contributions, ownership of complex production issues, architectural improvements, platform modernization, and contributions beyond my core development responsibilities.
+
+My contribution has extended beyond implementing assigned development tasks to identifying problems, proposing solutions, coordinating technical delivery, improving operational reliability, supporting enterprise controls, and implementing changes through the complete software development lifecycle.
+
+1. Quantifiable Engineering Contributions
+
+Internal Bitbucket dashboards provide measurable evidence of continued hands-on engineering activity across the review period.
+
+Metric| Reported Result
+Bitbucket instance 8081| 163 contributions
+Bitbucket instance 8082| 153 contributions
+Combined reported activity| 316 contributions
+Longest contribution streak| 6 days
+Highest daily activity — instance 8081| 13 contributions
+Highest daily activity — instance 8082| 14 contributions
+Reporting period| November 2025 – November 2026
+
+The combined contribution figure assumes that the two Bitbucket instances do not duplicate underlying activities. These figures represent contribution activity rather than a verified commit count.
+
+My engineering activity spans repositories associated with:
+
+- Trade Data Product, including trade management, matching, external matching, trade APIs and regulatory processing.
+- Order DAAS, including order management, allocation processing, matching, database management and ingestion services.
+- DWS Core Platform, including trade and MiFID services.
+- Index DAAS Product and supporting digital ingestion capabilities.
+
+These contributions demonstrate sustained hands-on technical involvement across multiple systems and business capabilities, alongside design, coordination, production support and governance responsibilities.
+
+2. End-to-End Engineering Ownership and Delivery
+
+I have taken ownership of technical deliverables from initial analysis and design through implementation, testing, release and production support.
+
+Key contributions include:
+
+- Preparing and publishing low-level technical designs and implementation approaches.
+- Translating business and technical requirements into maintainable engineering solutions.
+- Actively developing and delivering changes across Java, Spring Boot, Kafka and SQL Server-based applications.
+- Supporting migration and framework upgrade initiatives.
+- Following established SDLC, testing, approval and release processes.
+- Investigating and resolving defects discovered during development and production operation.
+
+Business impact: Improved delivery continuity, engineering maintainability and implementation quality across critical data-processing services.
+
+3. Production Stability, Root Cause Analysis and Operational Excellence
+
+I have proactively contributed to production reliability by identifying recurring problems, investigating root causes and implementing sustainable solutions rather than relying solely on temporary workarounds.
+
+Examples of responsibilities and contributions include:
+
+- Analyzing production incidents across applications, messaging infrastructure and databases.
+- Investigating failures involving Kafka processing, SQL Server performance and service integrations.
+- Identifying recurring operational problems and implementing permanent fixes.
+- Introducing or improving monitoring and alerting mechanisms to detect issues earlier.
+- Supporting production deployment and post-release verification.
+- Establishing processes to improve issue investigation, escalation and resolution.
+
+Business impact: Strengthened service reliability, improved operational visibility and reduced dependence on reactive troubleshooting.
+
+4. Architecture, Technical Design and Modernization
+
+I have contributed to solution architecture and technology modernization beyond routine feature development.
+
+Examples include:
+
+- Evaluating new architectural initiatives introduced by global engineering teams, including multi-ingress capabilities.
+- Assessing their compatibility with the existing environment and identifying implementation approaches.
+- Investigating service certificate and connectivity issues and recommending technical solutions.
+- Preparing low-level designs and supporting implementation through production deployment.
+- Participating in migration and upgrade activities across the application landscape.
+- Evaluating Snowflake-based data platform modernization, data ingestion, Data Twin and reusable data product approaches.
+
+Business impact: Supported informed technical decisions, reduced implementation uncertainty and improved alignment with enterprise architecture direction.
+
+5. Security, Cyber Hygiene and Control Compliance
+
+My responsibilities have extended into security, operational risk and enterprise governance activities.
+
+Key contributions include:
+
+- Supporting cyber hygiene activities for two NAR-related workstreams.
+- Contributing to control closure activities and associated technical evidence.
+- Preparing SDA documentation and supporting control closure for the Core Data Product.
+- Supporting NAR unbundling and go-live readiness.
+- Identifying certificate-related service issues and proposing remediation approaches.
+- Supporting vulnerability remediation and secure engineering practices.
+
+Business impact: Contributed to control readiness, security improvement and the delivery of governed, production-ready solutions.
+
+6. Proactive Engineering Improvements and Automation
+
+I have actively looked for opportunities to improve engineering efficiency and reduce recurring manual effort.
+
+Examples include:
+
+- Establishing processes for faster identification and resolution of production issues.
+- Improving alerting and observability.
+- Exploring AI-assisted engineering and automated vulnerability remediation.
+- Evaluating ways to integrate Jira, Bitbucket, local scripts and developer tooling into repeatable engineering workflows.
+- Applying technical analysis to identify improvement opportunities beyond immediately assigned development work.
+
+Business impact: Helped create opportunities for more consistent engineering processes, faster issue identification and improved developer productivity.
+
+7. Collaboration and Contribution Beyond Assigned Responsibilities
+
+Throughout the evaluation period, I have worked across application development, architecture, operations, security and platform-related activities.
+
+My involvement has included understanding initiatives launched by global teams, assessing their applicability to the local environment, supporting technical implementation and contributing to cross-team delivery.
+
+I have balanced hands-on development with broader responsibilities such as production investigation, technical design, control activities, migration analysis and operational improvements.
+
+This demonstrates a contribution extending beyond individual task execution toward broader engineering ownership.
+
+8. Why Strong Performance Is Justified
+
+My performance demonstrates several characteristics consistent with a Strong Performance rating:
+
+Consistent delivery: Continued engineering contributions across multiple business-critical repositories and applications.
+
+Technical ownership: Involvement throughout the complete delivery lifecycle, including design, implementation, release and production support.
+
+Problem-solving: Investigation of complex issues, identification of root causes and implementation of sustainable fixes.
+
+Proactive improvement: Identification of monitoring, automation, reliability and architectural improvement opportunities.
+
+Broader organizational contribution: Participation in cyber hygiene, control closures, NAR readiness, modernization initiatives and enterprise architecture alignment.
+
+Engineering depth: Hands-on expertise across Java, Spring Boot, Kafka, SQL Server, distributed systems, operational troubleshooting and data platform integration.
+
+Final Rating Justification
+
+I believe a Strong Performance rating is justified by the combination of measurable engineering activity, consistent delivery ownership, technical problem-solving, production reliability improvements and contributions beyond my immediate responsibilities.
+
+My contributions have not been limited to completing assigned development work. I have proactively identified issues, developed and implemented solutions, supported production operations, contributed to architecture and modernization initiatives, and participated in security and governance activities critical to the wider platform.
+
+The breadth of these responsibilities, together with sustained hands-on engineering contributions across multiple data products and services, demonstrates strong technical accountability, initiative and commitment to delivering reliable, secure and maintainable enterprise solutions.
