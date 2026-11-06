@@ -1,0 +1,164 @@
+2026 Year-End Self-Evaluation
+
+Overall Performance Assessment — Strong Performance
+
+Executive Summary
+
+Throughout 2026, I demonstrated strong ownership, technical expertise and commitment to delivering reliable, secure and scalable data products across the DWS Data-as-a-Service (DaaS) platform.
+
+My contributions extended beyond regular development responsibilities to include production stability, application modernization, performance optimization, cyber hygiene, risk and control governance, automation, technical leadership and preparation for the organization's strategic Snowflake transformation.
+
+I consistently contributed across multiple business-critical services while supporting production operations, resolving complex engineering challenges, improving development efficiency and helping the team meet delivery and governance commitments.
+
+I believe my overall performance merits a Strong Performance rating, supported by the following achievements and measurable evidence.
+
+1. Engineering Delivery and Technical Ownership
+
+Maintained substantial hands-on development contributions across Trade Data Product, Order DaaS, Core Platform and related services.
+
+- Bitbucket contribution dashboards recorded 163 contributions in one view and 153 in another over the November 2025–November 2026 reporting period.
+- Contributed across approximately 20 or more repositories, including trade ingestion, matching, management, API, order processing and database services.
+- Delivered and supported enhancements involving Java, Spring Boot, Kafka, SQL Server, REST APIs, XML processing and application integrations.
+- Contributed to Spring Boot modernization, Multi-Ingress changes, parser corrections, database changes and application reliability improvements.
+- Worked on business-critical services including "daas-trade-service", "daas-trade-manager", "daas-trade-brs-producer", external match managers and multiple order-processing components.
+- Supported technical investigation and resolution of complex application issues across interconnected microservices.
+
+These contributions demonstrate continued hands-on engineering involvement alongside broader technical and operational responsibilities.
+
+2. Performance Optimization and Platform Stability
+
+Contributed to application and infrastructure performance improvements through detailed technical analysis, production monitoring and capacity optimization.
+
+Key improvements included:
+
+- SQL Server memory capacity: Increased from 28,671 MB to 49,152 MB, representing approximately 71.4% additional allocated capacity.
+- CPU capacity: Increased from 4 to 8 cores, doubling available CPU capacity for the relevant environment.
+- Application pod memory: Increased from 4 GiB to 6 GiB, providing 50% additional memory capacity.
+- Investigated SQL Server query execution, caching, parallelism, resource utilization and database performance.
+- Analyzed application behavior involving Kafka consumers, processing concurrency, memory utilization and JVM performance.
+- Supported performance tuning and operational improvements for high-volume data-processing services.
+
+These activities strengthened platform capacity and helped address performance and reliability risks. The capacity improvements are measurable; resulting throughput and latency gains should be assessed separately where production metrics are available.
+
+3. Cybersecurity, Vulnerability Remediation and Engineering Automation
+
+Made significant contributions to the organization's cyber hygiene and application security objectives.
+
+- Remediated more than 50 security vulnerabilities across application components and dependencies.
+- Guided team members through vulnerability investigation, dependency remediation, compatibility assessment and resolution approaches.
+- Developed an AI-assisted skill-based approach for automating vulnerability remediation within the SAGA engineering workflow.
+- Worked on automating the process of analyzing vulnerability information, preparing remediation changes and supporting pull-request creation.
+- Created an automation script for lock-file generation, reducing repetitive manual engineering work.
+- Supported secure application modernization and dependency upgrades while considering compatibility and application stability.
+
+My contribution extended beyond individual vulnerability fixes to developing repeatable approaches and supporting other engineers, creating opportunities for broader improvements in remediation efficiency.
+
+4. Cyber Hygiene, Risk Governance and Control Closures
+
+Contributed to cyber hygiene and control governance activities covering the Trade and Core Data Products.
+
+- Supported cyber hygiene activities associated with two NAR-related workstreams, including control closure requirements.
+- Participated in Operating Effectiveness Assessments covering password complexity, identity and access management, user administration documentation, segregation of duties and critical access recertification.
+- Supported assessment reviews and control evidence preparation for DWS DataProduct Trade and Core.
+- Contributed to the preparation of Solution Design Architecture (SDA) documentation for the Core Data Product.
+- Supported control closure and governance readiness activities associated with Core Data Product NAR unbundling and go-live.
+- Coordinated technical and control-related requirements to help align delivery activities with security, operational and governance expectations.
+
+This work demonstrates ownership extending beyond application delivery into risk management, operational readiness and regulatory control responsibilities.
+
+5. Production Support, Incident Management and Knowledge Sharing
+
+Contributed to production stability through proactive monitoring, technical investigation, incident resolution and operational documentation.
+
+- Monitored critical services and investigated production issues across application, database and messaging layers.
+- Supported root-cause analysis and implementation of corrective fixes.
+- Contributed to SDLC and production-related fixes, including DWSDI-5411 and DWSDI-4784.
+- Supported Spring Boot and Multi-Ingress work associated with DWSDI-9589.
+- Contributed to certificate and NAR rollback-related activities under DWSDI-10128.
+- Created or contributed to three knowledge base articles: KB0482986, KB0482257 and KB0477469.
+- Supported technical documentation and architecture decision records to improve knowledge retention and operational consistency.
+
+These activities reflect accountability for application stability and maintainability beyond initial development and deployment.
+
+6. Architecture, Modernization and Strategic Initiatives
+
+Supported modernization initiatives and architectural discussions focused on improving the long-term maintainability and scalability of the data platform.
+
+- Contributed to technical discussions around application modernization, deployment architecture, service reliability and performance.
+- Supported Spring Boot upgrade activities and Multi-Ingress implementation.
+- Participated in architectural analysis of Kafka-based processing, SQL Server optimization and distributed service behavior.
+- Explored Snowflake migration architecture, including Bronze, Silver and Gold data layers, near-real-time processing, CDC integration and data-product delivery patterns.
+- Contributed technical perspectives on the Data Twin approach and the implications of replicating source-system data into Snowflake.
+- Investigated potential uses of AI-assisted engineering, agent-based automation and developer tooling to improve engineering productivity.
+
+These contributions demonstrate an ability to connect current engineering responsibilities with the organization's longer-term technology direction.
+
+7. Technical Leadership, Mentoring and Team Enablement
+
+Demonstrated technical leadership through collaboration, problem-solving and support for other engineers.
+
+- Guided colleagues on vulnerability remediation, dependency upgrades and technical troubleshooting.
+- Supported team members in resolving complex issues involving Java, Spring Boot, Kafka, SQL Server and application integration.
+- Shared knowledge gained through production investigations and engineering improvements.
+- Contributed to engineering discussions and technical decisions across services and workstreams.
+- Supported junior engineers in strengthening technical understanding, delivery ownership and problem-solving capabilities.
+- Explored reusable automation approaches that could help the wider team reduce repetitive development tasks.
+
+My contribution combined individual technical delivery with efforts to improve team capability and engineering practices.
+
+8. Innovation and AI-Assisted Engineering
+
+Proactively explored opportunities to apply AI and automation to practical engineering challenges.
+
+- Developed a skill-based approach to automate vulnerability remediation in the SAGA workflow.
+- Explored integration of AI-assisted development with Jira, Bitbucket, local scripts and engineering workflows.
+- Investigated approaches for collecting and classifying vulnerability information before initiating remediation.
+- Worked on automating repetitive engineering tasks, including lock-file generation.
+- Participated in technical enablement activities covering MCP, developer tooling and AI-assisted workflows.
+- Explored the potential of Snowflake Cortex Code and AI agents for data engineering and future platform modernization.
+
+These initiatives demonstrate a willingness to move beyond conventional development practices and identify opportunities for scalable engineering improvements.
+
+9. Professional Development and Snowflake Certification
+
+Invested in professional development to build capabilities aligned with emerging organizational priorities.
+
+- Successfully achieved the SnowPro Associate: Platform certification on May 2, 2026.
+- Attended the Snowflake Data for Breakfast Virtual learning event, with attendance confirmed in April 2026.
+- Engaged with learning opportunities covering Snowflake Cortex Code, modern data engineering, intelligent data applications, declarative data pipelines and AI agent concepts.
+- Expanded technical knowledge beyond the existing Java, Spring Boot, Kafka and SQL Server ecosystem.
+- Developed foundational Snowflake platform knowledge relevant to future migration, architecture and engineering initiatives.
+
+This investment in continuous learning positions me to contribute to future data platform transformation initiatives while maintaining delivery responsibilities on existing applications.
+
+10. Overall Business Impact and Strong Performance Justification
+
+My performance during 2026 reflects a combination of engineering execution, technical problem-solving, operational ownership, security improvements, team enablement and strategic development.
+
+Key measurable achievements include:
+
+- Remediation of 50+ vulnerabilities.
+- 163 and 153 recorded contributions across two Bitbucket reporting views.
+- Engineering involvement across approximately 20+ repositories.
+- Approximately 71% increase in allocated SQL Server memory capacity.
+- 100% increase in CPU capacity, from 4 to 8 cores.
+- 50% increase in application pod memory, from 4 GiB to 6 GiB.
+- Creation or contribution to three operational knowledge base articles.
+- Support for two NAR-related workstreams and associated governance activities.
+- Achievement of one globally recognized Snowflake professional certification.
+
+Beyond these measurable contributions, I took on responsibilities spanning production support, technical troubleshooting, architecture, cybersecurity, risk governance, mentoring and automation.
+
+I demonstrated the ability to contribute to immediate delivery priorities while simultaneously addressing technical debt, improving platform readiness and preparing for future transformation.
+
+Final Self-Assessment
+
+I believe I have delivered Strong Performance during 2026 through consistent technical contribution, ownership of complex engineering challenges and meaningful involvement beyond my core development responsibilities.
+
+My achievements span multiple dimensions of engineering excellence: delivery, performance, stability, security, governance, innovation, technical leadership and professional development.
+
+Particularly significant were the remediation of more than 50 vulnerabilities, contributions to capacity and performance improvements, hands-on engineering work across multiple data products, support for NAR and control governance, and development of automation approaches aimed at improving engineering efficiency.
+
+Alongside these contributions, I invested in expanding my capabilities through Snowflake certification and relevant technical learning, aligning my development with the organization's future technology strategy.
+
+Taken together, these achievements demonstrate sustained delivery, adaptability, technical ownership and a commitment to improving both current operations and future engineering capabilities. I believe they provide a strong, evidence-based justification for a Strong Performance rating.
